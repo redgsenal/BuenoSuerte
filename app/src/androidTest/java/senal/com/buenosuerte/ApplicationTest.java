@@ -1,4 +1,4 @@
-package sample.senal.com.buenosuerte;
+package senal.com.buenosuerte;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

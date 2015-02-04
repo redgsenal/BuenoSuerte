@@ -1,4 +1,4 @@
-package sample.senal.com.buenosuerte;
+package senal.com.buenosuerte;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;

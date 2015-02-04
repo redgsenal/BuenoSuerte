@@ -1,2 +1,0 @@
-# BuenoSuerte
-Android mobile tutorial
