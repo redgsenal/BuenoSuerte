@@ -4,5 +4,7 @@
     <string name="app_name">Bueno Suerte</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="bueno_title">Bueno Suerte!</string>
+    <string name="lucky_pick">Lucky Pick</string>
 
 </resources>
