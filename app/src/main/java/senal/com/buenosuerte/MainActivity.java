@@ -1,5 +1,6 @@
 package senal.com.buenosuerte;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,5 +44,6 @@ public class MainActivity extends ActionBarActivity {
 
     public void pickNumbers(View v){
         Log.d("click pick", "button clicked");
+        startActivity(new Intent("senal.com.buenosuerte.SecondActivity"));
     }
 }
