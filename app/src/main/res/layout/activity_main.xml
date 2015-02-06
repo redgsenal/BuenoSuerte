@@ -22,7 +22,8 @@
         android:layout_below="@+id/textView6"
         android:layout_alignRight="@+id/textView2"
         android:layout_alignEnd="@+id/textView2"
-        android:layout_marginTop="45dp" />
+        android:layout_marginTop="45dp"
+        android:onClick="pickNumbers"/>
 
     <TextView
         android:layout_width="wrap_content"
