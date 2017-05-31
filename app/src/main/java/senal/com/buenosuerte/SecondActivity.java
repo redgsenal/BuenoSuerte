@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import java.security.NoSuchAlgorithmException;
@@ -22,7 +23,6 @@ public class SecondActivity extends AppCompatActivity {
         TextView txtnumPicks = (TextView) findViewById(R.id.numPicks);
         TextView txtMinValue = (TextView) findViewById(R.id.minValue);
         TextView txtMaxValue = (TextView) findViewById(R.id.maxValue);
-        TextView txtResult= (TextView) findViewById(R.id.result);
 
         String strNumPicks = getIntValue("numPicks");
         String strMinValue = getIntValue("minValue");
@@ -31,6 +31,21 @@ public class SecondActivity extends AppCompatActivity {
         txtnumPicks.setText(strNumPicks);
         txtMinValue.setText(strMinValue);
         txtMaxValue.setText(strMaxValue);
+
+        pickResults();
+    }
+
+    public void rePickResults(View v){
+        pickResults();
+    }
+
+    public void pickResults(){
+
+        TextView txtResult= (TextView) findViewById(R.id.result);
+
+        String strNumPicks = getIntValue("numPicks");
+        String strMinValue = getIntValue("minValue");
+        String strMaxValue = getIntValue("maxValue");
 
         int numPicks = parseValue(strNumPicks);
         int minValue = parseValue(strMinValue);

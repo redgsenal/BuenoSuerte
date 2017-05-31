@@ -11,6 +11,7 @@
     <string name="bueno_title">Bueno Suerte!</string>
     <string name="pick_results">Results</string>
     <string name="lucky_pick">Lucky Pick</string>
+    <string name="re_pick">Re-Pick</string>
     <string name="sample_pick">XX-XX-XX-XX-XX-XX</string>
     <string name="title_activity_second">Pick Results</string>
 </resources>

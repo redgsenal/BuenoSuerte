@@ -14,7 +14,6 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnLuckPick;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
