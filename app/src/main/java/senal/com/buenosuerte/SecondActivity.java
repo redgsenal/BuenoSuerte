@@ -61,9 +61,10 @@ public class SecondActivity extends AppCompatActivity {
             } catch (NoSuchAlgorithmException e) {
                 //e.printStackTrace();
             }
-            int v = 0;
+
             for(int c = 0; c < numPicks; ++c){
                 boolean next = true;
+                int v = 0;
                 // no duplicates
                 while(next){
                     try {
