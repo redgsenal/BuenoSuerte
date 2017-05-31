@@ -46,8 +46,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void pickNumbers(View v){
         Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-        final EditText pickCount = (EditText) findViewById(R.id.txtNumPicks);
-        intent.putExtra("numPicks", pickCount.getText().toString());
+        final EditText numPicks = (EditText) findViewById(R.id.txtNumPicks);
+        final EditText minValue = (EditText) findViewById(R.id.txtMinValue);
+        final EditText maxValue = (EditText) findViewById(R.id.txtMaxValue);
+        intent.putExtra("numPicks", numPicks.getText().toString());
+        intent.putExtra("minValue", minValue.getText().toString());
+        intent.putExtra("maxValue", maxValue.getText().toString());
         startActivity(intent);
     }
 }

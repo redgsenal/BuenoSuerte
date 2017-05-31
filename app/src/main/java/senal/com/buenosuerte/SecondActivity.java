@@ -1,12 +1,13 @@
 package senal.com.buenosuerte;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -15,8 +16,73 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        TextView numPicks = (TextView) findViewById(R.id.numPicks);
-        numPicks.setText(getIntent().getExtras().getString("numPicks"));
+        TextView txtnumPicks = (TextView) findViewById(R.id.numPicks);
+        TextView txtMinValue = (TextView) findViewById(R.id.minValue);
+        TextView txtMaxValue = (TextView) findViewById(R.id.maxValue);
+        TextView txtResult= (TextView) findViewById(R.id.result);
+
+        String strNumPicks = getIntValue("numPicks");
+        String strMinValue = getIntValue("minValue");
+        String strMaxValue = getIntValue("maxValue");
+
+        txtnumPicks.setText(strNumPicks);
+        txtMinValue.setText(strMinValue);
+        txtMaxValue.setText(strMaxValue);
+
+        int numPicks = parseValue(strNumPicks);
+        int minValue = parseValue(strMinValue);
+        int maxValue = parseValue(strMaxValue);
+
+        txtResult.setText(genResult(numPicks, minValue, maxValue));
+    }
+
+    private String genResult(int numPicks, int minValue, int maxValue){
+        StringBuilder errors = new StringBuilder();
+        if (numPicks <= 0)
+            errors.append("Invalid number of picks. ");
+        if (maxValue <= minValue)
+            errors.append("Maximum value must be > minimum value. ");
+        if (maxValue <= 1)
+            errors.append("Maximum value must be > 1 ");
+        if (minValue < 1)
+            errors.append("Minimum value must be >= 1 ");
+        if (errors.length() > 0){
+            return errors.toString();
+        }else{
+            ArrayList<Integer> r = new ArrayList<>();
+            int v = pickValue(minValue, maxValue);
+            for(int c = 0; c < numPicks; ++c){
+                boolean next = true;
+                // no duplicates
+                while(next){
+                    v = pickValue(minValue, maxValue);
+                    next = r.contains(v);
+                }
+                r.add(v);
+            }
+            Collections.sort(r);
+            return r.toString();
+        }
+    }
+
+    private int pickValue(int minValue, int maxValue){
+        double pick = (Math.random() * maxValue) + minValue;
+        return (int) Math.round(pick);
+    }
+
+    private String getIntValue(String varName){
+        String v = getIntent().getExtras().getString(varName);
+        if (v == null || v.isEmpty())
+            return "0";
+        return v;
+    }
+
+    private int parseValue(String v){
+        try{
+            return Integer.parseInt(v);
+        }catch (NumberFormatException nfe){
+            return 0;
+        }
     }
 
     @Override
@@ -37,7 +103,6 @@ public class SecondActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

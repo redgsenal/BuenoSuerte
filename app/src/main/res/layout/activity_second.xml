@@ -33,13 +33,13 @@
         android:id="@+id/maxValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/max_value"
+        android:textSize="18sp"
+        android:textStyle="bold"
         android:layout_alignBaseline="@+id/textView6"
         android:layout_alignBottom="@+id/textView6"
         android:layout_alignLeft="@+id/minValue"
-        android:layout_alignStart="@+id/minValue"
-        android:text="@string/max_value"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_alignStart="@+id/minValue" />
     <TextView
         android:id="@+id/numPicks"
         android:layout_width="wrap_content"
@@ -73,5 +73,29 @@
         android:layout_marginTop="18dp"
         android:text="@string/min_label"
         android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView6"
+        android:layout_marginTop="41dp"
+        android:text="@string/pick_results"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView5"
+        android:layout_marginTop="20dp"
+        android:text="@string/sample_pick"
+        android:textSize="24sp"
         android:textStyle="bold" />
 </RelativeLayout>
