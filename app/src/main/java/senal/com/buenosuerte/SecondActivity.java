@@ -2,10 +2,13 @@ package senal.com.buenosuerte;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -50,12 +53,24 @@ public class SecondActivity extends AppCompatActivity {
             return errors.toString();
         }else{
             ArrayList<Integer> r = new ArrayList<>();
-            int v = pickValue(minValue, maxValue);
+            SecureRandom rand = null;
+            byte[] randomBytes = new byte[128];
+            try {
+                rand = SecureRandom.getInstance("SHA1PRNG");
+                rand.nextBytes(randomBytes);
+            } catch (NoSuchAlgorithmException e) {
+                //e.printStackTrace();
+            }
+            int v = 0;
             for(int c = 0; c < numPicks; ++c){
                 boolean next = true;
                 // no duplicates
                 while(next){
-                    v = pickValue(minValue, maxValue);
+                    try {
+                        v = rand.nextInt(maxValue) + minValue;
+                    }catch (NullPointerException errnull){
+                        // skip error
+                    }
                     next = r.contains(v);
                 }
                 r.add(v);
@@ -63,11 +78,6 @@ public class SecondActivity extends AppCompatActivity {
             Collections.sort(r);
             return r.toString();
         }
-    }
-
-    private int pickValue(int minValue, int maxValue){
-        double pick = (Math.random() * maxValue) + minValue;
-        return (int) Math.round(pick);
     }
 
     private String getIntValue(String varName){
