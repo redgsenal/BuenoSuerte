@@ -19,7 +19,7 @@
             android:name=".SecondActivity"
             android:label="@string/title_activity_second" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="senal.com.buenosuerte.SecondActivity"/>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

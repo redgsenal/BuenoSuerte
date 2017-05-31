@@ -2,7 +2,13 @@
 <resources>
 
     <string name="app_name">Bueno Suerte</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="num_picks_label">Number of picks:</string>
+    <string name="min_label">Minimum value:</string>
+    <string name="max_label">Maximum value:</string>
+    <string name="num_picks_value">0</string>
+    <string name="min_value">0</string>
+    <string name="max_value">0</string>
+
     <string name="action_settings">Settings</string>
     <string name="bueno_title">Bueno Suerte!</string>
     <string name="lucky_pick">Lucky Pick</string>

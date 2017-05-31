@@ -3,21 +3,23 @@ package senal.com.buenosuerte;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     Button btnLuckPick;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
+        setContentView(R.layout.activity_main);
     }
 
     @Override
@@ -43,7 +45,9 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void pickNumbers(View v){
-        Log.d("click pick", "button clicked");
-        startActivity(new Intent("senal.com.buenosuerte.SecondActivity"));
+        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        final EditText pickCount = (EditText) findViewById(R.id.txtNumPicks);
+        intent.putExtra("numPicks", pickCount.getText().toString());
+        startActivity(intent);
     }
 }
